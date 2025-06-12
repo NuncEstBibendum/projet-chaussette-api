@@ -1,0 +1,45 @@
+{
+  "name": "mtgtrivia-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "sync-data": "node --max-old-space-size=8192 -r ts-node/register src/scripts/syncBulkData.ts",
+    "sync-sets": "node --max-old-space-size=8192 -r ts-node/register src/scripts/syncSets.ts",
+    "sync-symbols": "node --max-old-space-size=8192 -r ts-node/register src/scripts/syncSymbols.ts",
+    "sync-catalogs": "node --max-old-space-size=8192 -r ts-node/register src/scripts/syncCatalogs.ts",
+    "test-symbols": "ts-node src/scripts/testSymbols.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@prisma/client": "^6.9.0",
+    "@rneui/base": "^4.0.0-rc.8",
+    "@rneui/themed": "^4.0.0-rc.8",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/pg": "^8.11.11",
+    "@types/stream-json": "^1.7.8",
+    "axios": "^1.6.7",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.3",
+    "stream-json": "^1.9.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.4",
+    "prisma": "6.9.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.3"
+  }
+}
