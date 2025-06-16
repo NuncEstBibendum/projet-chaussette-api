@@ -47,7 +47,7 @@ export class AuthService {
         id: true,
         email: true,
         username: true,
-        created_at: true,
+        createdAt: true,
       },
     });
 
@@ -67,6 +67,7 @@ export class AuthService {
     // Find user
     const user = await prisma.user.findUnique({
       where: { email },
+      include: { children: true },
     });
 
     if (!user) {
@@ -93,7 +94,8 @@ export class AuthService {
         id: user.id,
         email: user.email,
         username: user.username,
-        created_at: user.created_at,
+        createdAt: user.createdAt,
+        children: user.children,
       },
       token,
     };
