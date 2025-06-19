@@ -46,4 +46,20 @@ export class ChildrenController {
     );
     res.status(201).json(children);
   }
+
+  static async createChildrenAchievement(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) {
+    const { childrenId } = req.params;
+    const { achievementId, acquiredAt, masteredAt } = req.body;
+    const childrenAchievement = await ChildrenService.createChildrenAchievement(
+      childrenId,
+      achievementId,
+      acquiredAt,
+      masteredAt
+    );
+    res.status(201).json(childrenAchievement);
+  }
 }

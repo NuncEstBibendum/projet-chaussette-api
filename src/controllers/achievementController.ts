@@ -14,4 +14,19 @@ export class AchievementController {
       next(error);
     }
   }
+  static async searchAchievements(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) {
+    try {
+      const { search } = req.query;
+      const achievements = await AchievementService.searchAchievements(
+        search as string
+      );
+      res.status(200).json(achievements);
+    } catch (error) {
+      next(error);
+    }
+  }
 }

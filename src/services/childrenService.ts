@@ -43,4 +43,16 @@ export class ChildrenService {
     });
     return children;
   }
+
+  static async createChildrenAchievement(
+    childrenId: string,
+    achievementId: string,
+    acquiredAt?: Date,
+    masteredAt?: Date
+  ) {
+    const childrenAchievement = await prisma.childrenAchievement.create({
+      data: { childrenId, achievementId, acquiredAt, masteredAt },
+    });
+    return childrenAchievement;
+  }
 }
