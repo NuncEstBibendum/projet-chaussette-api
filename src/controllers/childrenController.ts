@@ -34,4 +34,16 @@ export class ChildrenController {
     );
     res.status(200).json(achievements);
   }
+
+  static async createChildren(req: Request, res: Response, next: NextFunction) {
+    const { userId } = req.params;
+    const { name, birthDate, gender } = req.body;
+    const children = await ChildrenService.createChildren(
+      userId,
+      name,
+      birthDate,
+      gender
+    );
+    res.status(201).json(children);
+  }
 }

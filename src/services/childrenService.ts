@@ -31,4 +31,16 @@ export class ChildrenService {
     });
     return childrenAchievements;
   }
+
+  static async createChildren(
+    userId: string,
+    name: string,
+    birthDate: Date,
+    gender: string
+  ) {
+    const children = await prisma.children.create({
+      data: { userId, name, birthDate, gender },
+    });
+    return children;
+  }
 }

@@ -12,5 +12,6 @@ router.get(
   "/:userId/last-achievements",
   ChildrenController.getLastChildrenAchievements as RequestHandler
 );
+router.post("/:userId", ChildrenController.createChildren as RequestHandler);
 
 export default router;
